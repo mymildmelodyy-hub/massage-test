@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healing Hands - Luxury In-Room & Hotel Massage Bangkok</title>
+    <title>Healing Hands - Hero Section</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-navy: #0B192C;
-            --secondary-navy: #1E3E62;
             --accent-gold: #D4AF37;
             --gold-light: #F3E5AB;
-            --bg-light: #F8FAFC;
-            --text-dark: #0F172A;
-            --text-muted: #475569;
+            --text-light: #F8FAFC;
+            --text-gray: #CBD5E1;
         }
 
         * {
@@ -24,130 +21,82 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* ไล่เฉดสีน้ำเงินพรีเมียมสลับกับความสะอาดตาแบบสปาหรู */
-            background: linear-gradient(135deg, #0B192C 0%, #162B4D 50%, #0F203C 100%);
-            color: var(--text-dark);
-            line-height: 1.7;
+            background-color: #0B192C;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .serif-font {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
         }
 
-        /* Header & Navigation (White & Gold Luxury) */
-        header {
-            background-color: #FFFFFF;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 30px;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-            border: 1.5px solid var(--accent-gold);
-            border-radius: 50%;
+        /* Hero Section Container พร้อมไล่เฉดสีน้ำเงินพรีเมียม และเอฟเฟกต์ประกายวิบวับเบาๆ */
+        .hero-section {
+            position: relative;
+            padding: 100px 30px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-gold);
-            font-size: 20px;
-            background: #FAF8F5;
+            background: linear-gradient(135deg, #0A182F 0%, #162C4E 50%, #0F203C 100%);
+            overflow: hidden;
         }
 
-        .logo-text span {
-            display: block;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: var(--primary-navy);
+        /* เอฟเฟกต์ประกายวิบวับเคลื่อนไหวเบาๆ ด้านหลัง */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.8) 1.2px, transparent 0),
+                radial-gradient(rgba(212, 175, 55, 0.7) 1.8px, transparent 0);
+            background-size: 220px 220px, 300px 300px;
+            background-position: 0 0, 80px 120px;
+            opacity: 0.35;
+            animation: sparkleFloat 20s linear infinite;
+            z-index: 1;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            align-items: center;
+        @keyframes sparkleFloat {
+            0% { background-position: 0 0, 80px 120px; }
+            50% { opacity: 0.5; }
+            100% { background-position: 220px 220px, 380px 420px; }
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .book-btn {
-            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
-            color: #000;
-            padding: 11px 26px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .book-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Hero Section (Video Left/Right Layout) */
-        .hero {
-            padding: 170px 30px 100px 30px;
+        .hero-container {
+            position: relative;
+            z-index: 2;
             max-width: 1350px;
-            margin: 0 auto;
+            width: 100%;
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
+            grid-template-columns: 1fr 1.25fr;
             gap: 60px;
             align-items: center;
-            min-height: 90vh;
         }
 
+        /* ฝั่งซ้าย: ข้อความ */
         .hero-content h1 {
-            font-size: clamp(38px, 4.5vw, 58px);
-            line-height: 1.15;
-            margin-bottom: 22px;
-            color: #FFFFFF;
+            font-size: clamp(38px, 4.5vw, 56px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-light);
         }
 
         .hero-content h1 span {
             color: var(--accent-gold);
             font-style: italic;
+            text-shadow: 0 2px 15px rgba(212, 175, 55, 0.3);
         }
 
         .hero-content p {
-            font-size: 18px;
-            color: #E2E8F0;
+            font-size: 17px;
+            color: var(--text-gray);
             margin-bottom: 35px;
-            max-width: 540px;
+            max-width: 520px;
+            line-height: 1.8;
         }
 
         .hero-buttons {
@@ -156,59 +105,60 @@
             flex-wrap: wrap;
         }
 
-        .btn-whatsapp {
-            background-color: var(--secondary-navy);
-            color: #FFFFFF;
-            border: 1px solid var(--accent-gold);
-            padding: 13px 28px;
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+            color: #000;
+            padding: 13px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.3s;
+            font-size: 15px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #274C77;
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
         }
 
-        .btn-outline {
+        .btn-outline-gold {
             background: transparent;
-            color: #FFFFFF;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 13px 28px;
+            color: var(--text-light);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 13px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: border-color 0.3s;
+            font-size: 15px;
+            transition: all 0.3s;
         }
 
-        .btn-outline:hover {
+        .btn-outline-gold:hover {
+            background: rgba(212, 175, 55, 0.1);
             border-color: var(--accent-gold);
         }
 
-        /* Media Frame Placeholder (สำหรับใส่วิดีโอของคุณ) */
-        .media-placeholder-box {
+        /* ฝั่งขวา: ช่องวิดีโอกว้างพิเศษ ขอบทองหรูหรา */
+        .hero-video-wrapper {
             position: relative;
             width: 100%;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-            border: 2px solid rgba(212, 175, 55, 0.6);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(212, 175, 55, 0.5);
             background: #000;
             aspect-ratio: 16/10;
         }
 
-        .media-placeholder-box video {
+        .hero-video-wrapper video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .slot-tag {
+        .video-tag-badge {
             position: absolute;
             top: 15px;
             left: 15px;
@@ -223,320 +173,45 @@
             letter-spacing: 0.5px;
         }
 
-        /* Section Layout: Text + Image Frame Side by Side (สำหรับเว้นรูปภาพ) */
-        .content-split-section {
-            max-width: 1300px;
-            margin: 80px auto;
-            padding: 0 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .content-split-section.reverse {
-            direction: rtl;
-        }
-
-        .content-split-section.reverse > * {
-            direction: ltr;
-        }
-
-        .split-text h2 {
-            font-size: 38px;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .split-text h2 span {
-            color: var(--accent-gold);
-        }
-
-        .split-text p {
-            color: #CBD5E1;
-            font-size: 16px;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
-        .split-text ul {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .split-text ul li {
-            color: #E2E8F0;
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 24px;
-            font-size: 16px;
-        }
-
-        .split-text ul li::before {
-            content: "✓";
-            color: var(--accent-gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Image Placeholder Box (ช่องว่างสำหรับใส่รูปภาพของคุณ) */
-        .image-placeholder-frame {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4/3;
-            background: linear-gradient(135deg, #132743 0%, #1E3E62 100%);
-            border-radius: 20px;
-            border: 2px dashed rgba(212, 175, 55, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .image-placeholder-frame .icon {
-            font-size: 40px;
-            color: var(--accent-gold);
-            margin-bottom: 12px;
-        }
-
-        .image-placeholder-frame h4 {
-            color: #FFFFFF;
-            font-size: 20px;
-            margin-bottom: 8px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .image-placeholder-frame p {
-            color: #94A3B8;
-            font-size: 14px;
-            margin: 0;
-        }
-
-        /* Features Cards Section (4 การ์ดจุดเด่น) */
-        .features-grid {
-            max-width: 1300px;
-            margin: 80px auto;
-            padding: 0 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .feature-card {
-            background: linear-gradient(145deg, #132743 0%, #0F203C 100%);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 40px 30px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-gold);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px auto;
-            border: 1.5px solid var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-gold);
-            font-size: 28px;
-            background: rgba(212, 175, 55, 0.08);
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            color: #FFFFFF;
-        }
-
-        .feature-card p {
-            font-size: 15px;
-            color: #94A3B8;
-        }
-
-        /* Footer / Commitment Banner */
-        .luxury-footer-banner {
-            max-width: 1300px;
-            margin: 60px auto 100px auto;
-            padding: 70px 40px;
-            text-align: center;
-            background: linear-gradient(135deg, #162B4D 0%, #0B192C 100%);
-            border-radius: 20px;
-            border: 1.5px solid var(--accent-gold);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-        }
-
-        .luxury-footer-banner h2 {
-            font-size: 40px;
-            color: var(--gold-light);
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .luxury-footer-banner p {
-            max-width: 750px;
-            margin: 0 auto 35px auto;
-            font-size: 17px;
-            color: #CBD5E1;
-            line-height: 1.8;
-        }
-
-        /* Responsive */
+        /* Responsive สำหรับมือถือ: ตัวหนังสือบน วิดีโอล่าง */
         @media (max-width: 968px) {
-            .hero, .content-split-section {
+            .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 40px;
             }
-            .content-split-section.reverse {
-                direction: ltr;
-            }
-            .hero-content p, .split-text p {
+            .hero-content p {
                 margin-left: auto;
                 margin-right: auto;
             }
             .hero-buttons {
                 justify-content: center;
             }
-            .nav-links {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo-area">
-                <div class="logo-icon">🌿</div>
-                <div class="logo-text">
-                    <span>HEALING HANDS</span>
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- ฝั่งซ้าย: ข้อความ -->
+            <div class="hero-content">
+                <h1>Professional Wellness <span>at Your Location</span></h1>
+                <p>Experience luxury mobile massage service in Bangkok, Pattaya and Phuket. Our professional certified therapists bring absolute relaxation straight to your hotel room or condo within 30–40 minutes.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-gold">💬 Book on WhatsApp</a>
+                    <a href="#" class="btn-outline-gold">View Prices</a>
                 </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Prices</a></li>
-                <li><a href="#">Therapists</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <a href="#" class="book-btn">Book Now</a>
-        </div>
-    </header>
-
-    <!-- Hero Section (Text + Video Slot) -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Professional Wellness <span>at Your Location</span></h1>
-            <p>Experience the ultimate luxury in-room and hotel massage in Bangkok, Pattaya, and Phuket. Our certified professional therapists bring complete relaxation straight to your door within 30–40 minutes.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-whatsapp">💬 Book on WhatsApp</a>
-                <a href="#" class="btn-outline">View Prices</a>
             </div>
-        </div>
-        <div class="media-placeholder-box">
-            <div class="slot-tag">▶ HERO VIDEO SLOT</div>
-            <!-- ช่องใส่วิดีโอของคุณ -->
-            <video autoplay muted loop playsinline>
-                <source src="75216b58-b124-4c9c-92e8-139fb0a27e81.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
 
-    <!-- Features Grid Section (4 จุดเด่นหลัก) -->
-    <section class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon">👩‍⚕️</div>
-            <h3>Experienced Therapists</h3>
-            <p>Professionally trained therapists providing respectful and wellness-focused treatments.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⏱️</div>
-            <h3>Fast Arrival</h3>
-            <p>Our team can usually arrive within 30–40 minutes, depending on your location and traffic.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">✨</div>
-            <h3>Clean & Hygienic</h3>
-            <p>Fresh linens, clean equipment, and careful hygiene standards for every appointment.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📱</div>
-            <h3>Easy Booking</h3>
-            <p>Book quickly through our website, LINE, or WhatsApp with clear confirmation.</p>
-        </div>
-    </section>
-
-    <!-- Content Split Section 1: เว้นพื้นที่สำหรับใส่รูปภาพบริการ -->
-    <section class="content-split-section">
-        <div class="split-text">
-            <h2>What You Can <span>Expect</span></h2>
-            <p>We provide a fully professional spa experience in the comfort of your private residence, hotel room, or condo. No travel required, just pure relaxation.</p>
-            <ul>
-                <li>Certified, Experienced Therapists in Professional Uniform</li>
-                <li>Clean, Non-Sexual, Wellness-Based Traditional & Oil Treatments</li>
-                <li>On-Time, Professional In-Room Setup & Service</li>
-                <li>Quick Booking & Transparent Communication</li>
-                <li>Trusted by International Guests and Local Residents</li>
-            </ul>
-            <p style="color: var(--accent-gold); font-weight: 500;">📍 Service areas include Sukhumvit, Silom, Rama 9, Siam, and central Bangkok.</p>
-            <a href="#" class="book-btn" style="display: inline-block; margin-top: 10px;">BOOK APPOINTMENT</a>
-        </div>
-        <div>
-            <!-- [ช่องว่างสำหรับใส่รูปภาพที่ 1] เช่น รูปบรรยากาศการนวดในห้องพัก หรือนักบำบัดกำลังจัดเตรียมอุปกรณ์ -->
-            <div class="image-placeholder-frame">
-                <div class="icon">🖼️</div>
-                <h4>IMAGE SLOT 1</h4>
-                <p>แนะนำให้ใส่รูปภาพ: บรรยากาศการนวดผ่อนคลายในห้องพักโรงแรม หรืออุปกรณ์สปาพรีเมียม</p>
+            <!-- ฝั่งขวา: ช่องวิดีโอของคุณ (เล่นอัตโนมัติ ปิดเสียง วนลูป) -->
+            <div class="hero-video-wrapper">
+                <div class="video-tag-badge">✨ HEALING HANDS VIDEO</div>
+                <video autoplay muted loop playsinline>
+                    <source src="75216b58-b124-4c9c-92e8-139fb0a27e81.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-        </div>
-    </section>
-
-    <!-- Content Split Section 2 (สลับฝั่ง): เว้นพื้นที่สำหรับใส่รูปภาพทีมงาน -->
-    <section class="content-split-section reverse">
-        <div class="split-text">
-            <h2>Meet Our <span>Professional Team</span></h2>
-            <p>Every therapist at Healing Hands is rigorously trained, polite, and dedicated to delivering exceptional care tailored to your body's needs.</p>
-            <ul>
-                <li>Rigorous background checks and professional certification</li>
-                <li>Specialized in Thai traditional, aromatherapy, and deep tissue massage</li>
-                <li>Arrives punctually in standard uniform with all necessary oils and fresh linens</li>
-            </ul>
-            <a href="#" class="btn-whatsapp" style="margin-top: 10px;">💬 CHAT WITH US</a>
-        </div>
-        <div>
-            <!-- [ช่องว่างสำหรับใส่รูปภาพที่ 2] เช่น รูปทีมนักบำบัดในชุดยูนิฟอร์ม หรือรูปพนักงานต้อนรับ -->
-            <div class="image-placeholder-frame">
-                <div class="icon">🖼️</div>
-                <h4>IMAGE SLOT 2</h4>
-                <p>แนะนำให้ใส่รูปภาพ: ทีมนักบำบัดในชุดยูนิฟอร์มสุภาพ หรือภาพต้อนรับระดับไฮเอนด์</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Luxury Commitment Footer Banner -->
-    <section class="luxury-footer-banner">
-        <h2>“Your Comfort Is Our Commitment”</h2>
-        <p>At Healing Hands Thailand, we believe that every journey should begin with a warm welcome and end with true relaxation. Open daily from 09:00 AM to 03:00 AM (Next Day).</p>
-        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-            <a href="#" class="book-btn">BOOK NOW</a>
-            <a href="#" class="btn-whatsapp">💬 WHATSAPP CHAT</a>
         </div>
     </section>
 
