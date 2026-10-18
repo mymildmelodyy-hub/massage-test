@@ -7,14 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #071126;
-            --primary-navy: #0B192C;
+            --bg-deep: #0B192C;
+            --bg-card: #132743;
             --secondary-navy: #1E3E62;
             --gold: #D4AF37;
             --gold-light: #F3E5AB;
             --text-light: #F8FAFC;
             --text-dark: #1E293B;
-            --text-gray: #94A3B8;
+            --text-gray: #CBD5E1;
         }
 
         * {
@@ -25,14 +25,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--primary-dark);
+            background: linear-gradient(135deg, #0B192C 0%, #162B4D 50%, #0F203C 100%);
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
-        /* Sparkle / Glitter Background Effect */
+        /* Premium Sparkle / Glitter Background Effect (วิบวับพรีเมียม) */
         body::before {
             content: "";
             position: fixed;
@@ -42,19 +43,20 @@
             height: 100%;
             pointer-events: none;
             background-image: 
-                radial-gradient(white 1px, transparent 0),
-                radial-gradient(rgba(212, 175, 55, 0.8) 1.5px, transparent 0),
-                radial-gradient(white 1px, transparent 0);
-            background-size: 150px 150px, 200px 200px, 120px 120px;
-            background-position: 0 0, 40px 60px, 80px 30px;
-            opacity: 0.25;
-            animation: sparkleMove 20s linear infinite;
+                radial-gradient(rgba(255, 255, 255, 0.9) 1.5px, transparent 0),
+                radial-gradient(rgba(212, 175, 55, 0.9) 2px, transparent 0),
+                radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 0);
+            background-size: 180px 180px, 250px 250px, 140px 140px;
+            background-position: 0 0, 50px 70px, 100px 40px;
+            opacity: 0.45;
+            animation: sparkleMove 15s linear infinite;
             z-index: 1;
         }
 
         @keyframes sparkleMove {
-            0% { background-position: 0 0, 40px 60px, 80px 30px; }
-            100% { background-position: 150px 150px, 190px 260px, 200px 150px; }
+            0% { background-position: 0 0, 50px 70px, 100px 40px; }
+            50% { opacity: 0.6; }
+            100% { background-position: 180px 180px, 200px 320px, 240px 180px; }
         }
 
         h1, h2, h3, .serif-font {
@@ -76,7 +78,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         }
 
@@ -163,11 +165,11 @@
             grid-template-columns: 1fr 1.25fr;
             gap: 50px;
             align-items: center;
-            min-height: 90vh;
+            min-height: 85vh;
         }
 
         .hero-content h1 {
-            font-size: clamp(34px, 4.2vw, 54px);
+            font-size: clamp(36px, 4.2vw, 56px);
             line-height: 1.2;
             margin-bottom: 20px;
             color: var(--text-light);
@@ -212,7 +214,7 @@
         .btn-outline {
             background: transparent;
             color: var(--text-light);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             padding: 12px 28px;
             border-radius: 30px;
             text-decoration: none;
@@ -230,8 +232,8 @@
             width: 100%;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
-            border: 2px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(212, 175, 55, 0.5);
             background: #000;
             aspect-ratio: 16/10;
         }
@@ -254,23 +256,24 @@
         }
 
         .feature-card {
-            background-color: var(--primary-navy);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 30px;
-            border-radius: 15px;
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 35px 30px;
+            border-radius: 16px;
             text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             margin: 0 auto 20px auto;
             border: 1px solid var(--gold);
             border-radius: 50%;
@@ -278,13 +281,13 @@
             align-items: center;
             justify-content: center;
             color: var(--gold);
-            font-size: 24px;
-            background: rgba(212, 175, 55, 0.05);
+            font-size: 26px;
+            background: rgba(212, 175, 55, 0.08);
         }
 
         .feature-card h3 {
             font-size: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--text-light);
         }
 
@@ -297,18 +300,20 @@
         .info-section {
             max-width: 1300px;
             margin: 40px auto;
-            padding: 60px 30px;
+            padding: 65px 40px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
-            background: rgba(30, 62, 98, 0.25);
+            background: rgba(19, 39, 67, 0.7);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
 
         .info-content h2 {
-            font-size: 36px;
+            font-size: 38px;
             margin-bottom: 20px;
             color: var(--text-light);
         }
@@ -319,10 +324,11 @@
         }
 
         .info-content ul li {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: var(--text-gray);
             position: relative;
-            padding-left: 20px;
+            padding-left: 22px;
+            font-size: 16px;
         }
 
         .info-content ul li::before {
@@ -330,22 +336,50 @@
             color: var(--gold);
             position: absolute;
             left: 0;
-            font-size: 20px;
+            font-size: 22px;
         }
 
         .info-banner {
-            background: linear-gradient(rgba(11, 25, 44, 0.75), rgba(11, 25, 44, 0.75)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80') center/cover;
-            border-radius: 15px;
-            padding: 50px 30px;
+            background: linear-gradient(rgba(11, 25, 44, 0.8), rgba(11, 25, 44, 0.8)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80') center/cover;
+            border-radius: 16px;
+            padding: 60px 30px;
             text-align: center;
             border: 1px solid var(--gold);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         .info-banner h3 {
-            font-size: 28px;
+            font-size: 30px;
             color: var(--gold-light);
             margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* Commitment Banner Section */
+        .commitment-section {
+            max-width: 1300px;
+            margin: 60px auto 80px auto;
+            padding: 70px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(30, 62, 98, 0.6) 0%, rgba(11, 25, 44, 0.8) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .commitment-section h2 {
+            font-size: 36px;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .commitment-section p {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            font-size: 17px;
+            color: var(--text-gray);
+            line-height: 1.8;
         }
 
         /* Responsive */
@@ -447,13 +481,23 @@
                 <li>Quick Booking & Transparent Communication</li>
                 <li>Trusted by International Guests and Locals</li>
             </ul>
-            <p style="color: var(--text-gray); font-size: 15px; margin-bottom: 20px;">📍 Service areas include Sukhumvit, Silom, Rama 9, Siam, and central Bangkok.</p>
+            <p style="color: var(--text-gray); font-size: 15px; margin-bottom: 25px;">📍 Service areas include Sukhumvit, Silom, Rama 9, Siam, and central Bangkok.</p>
             <a href="#" class="book-btn" style="display: inline-block;">BOOK NOW</a>
         </div>
         <div class="info-banner">
             <h3>OPEN DAILY</h3>
-            <p style="font-size: 22px; color: var(--gold); font-weight: bold; margin-bottom: 10px;">09:00 AM – 03:00 AM</p>
+            <p style="font-size: 24px; color: var(--gold); font-weight: bold; margin-bottom: 8px;">09:00 AM – 03:00 AM</p>
             <p style="color: var(--text-gray); font-size: 14px;">( NEXT DAY )</p>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section class="commitment-section">
+        <h2>“Your Comfort Is Our Commitment”</h2>
+        <p>At Healing Hands Thailand, we believe that every journey should begin with a warm welcome and end with true relaxation. Our certified therapists are ready to deliver professional in-room massage services—whether you’re staying at a luxury hotel or a private residence.</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="#" class="book-btn">BOOK NOW</a>
+            <a href="#" class="btn-whatsapp">💬 WHATSAPP</a>
         </div>
     </section>
 
